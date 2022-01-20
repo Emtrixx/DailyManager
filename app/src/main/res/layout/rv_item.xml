@@ -10,55 +10,43 @@
         android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itemTime"
-        app:layout_constraintStart_toStartOf="@+id/itemNote"
-        tools:text="Name" />
-
-    <TextView
-        android:id="@+id/itemLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/itemNote"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Hamburg" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
 
     <TextView
         android:id="@+id/itemTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/itemLocation"
         app:layout_constraintStart_toStartOf="@+id/itemName"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         tools:text="16:44" />
 
     <TextView
         android:id="@+id/itemNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/itemLocation"
+        app:layout_constraintStart_toStartOf="@+id/itemTime"
+        app:layout_constraintTop_toBottomOf="@+id/itemTime"
         tools:text="Very important note!!!" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/itemLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/itemTime"
+        app:layout_constraintStart_toEndOf="@+id/itemTime"
+        tools:text="Hamburg" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

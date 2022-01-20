@@ -19,5 +19,4 @@ class MainAdapter(private val list: ArrayList<Entry>):RecyclerView.Adapter<MainV
     override fun getItemCount(): Int {
         return list.size
     }
-
 }

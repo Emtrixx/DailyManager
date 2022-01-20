@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CalendarView
-import android.widget.DatePicker
 import android.widget.EditText
+import java.text.SimpleDateFormat
 
 class AddEntryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,9 +15,15 @@ class AddEntryActivity : AppCompatActivity() {
 
         val btnAdd = findViewById<Button>(R.id.btnAdd)
         val picker = findViewById<CalendarView>(R.id.datePicker)
-        var date = "22/05/2021"
+        val smp = SimpleDateFormat("dd/MM/yyyy");
+        var date = smp.format(System.currentTimeMillis())
 
-        picker.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
+        picker.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val month = if (month < 9) {
+                "0${month + 1}"
+            } else {
+                "${month + 1}"
+            }
             date = "${dayOfMonth}/${month}/${year}"
         }
 
@@ -30,7 +36,7 @@ class AddEntryActivity : AppCompatActivity() {
                 findViewById<EditText>(R.id.etLocation).text.toString(),
                 findViewById<EditText>(R.id.etNote).text.toString(),
             )
-            Entries.entryList.add(entry)
+            Entries.addEntry(entry, this)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
